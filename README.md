@@ -1,12 +1,86 @@
-# React + Vite
+# Admin Dashboard (Vite + React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This is an **Admin Dashboard** built with **Vite, React, React Router, Context API, Ant Design, Axios, and JSON Server**. It includes authentication, role-based access control (RBAC), and a user management system.
 
-Currently, two official plugins are available:
+## Features
+- 🔐 **Authentication (Login/Logout)** using Context API & JSON Server
+- 🎨 **Admin Dashboard** with user-specific views
+- 📜 **Private Routes** (only authenticated users can access)
+- 🛠️ **Role-Based Access Control (RBAC)** for different user roles (Admin, User)
+- 🏗️ **Built with Vite for fast development**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Frontend:** React, Vite, React Router, Context API, Ant Design
+- **Backend:** JSON Server (Mock API)
+- **State Management:** Context API
+- **HTTP Requests:** Axios
+- **Form Handling & Validation:** Formik & Yup
+- **Notifications:** React Toastify
 
-## Expanding the ESLint configuration
+## Installation & Setup
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/your-username/admin-dashboard.git
+cd admin-dashboard
+```
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2️⃣ Install Dependencies
+```sh
+npm install
+```
+
+### 3️⃣ Start the JSON Server (Mock Backend)
+```sh
+npx json-server --watch db.json --port 5000
+```
+
+### 4️⃣ Start the React App
+```sh
+npm run dev
+```
+
+## Project Structure
+```
+admin-dashboard/
+├── src/
+│   ├── components/
+│   │   ├── Login.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── Users.jsx
+│   ├── context/
+│   │   ├── AuthContext.jsx
+|   |   |---UserContext.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+├── db.json  # Mock database
+├── README.md
+```
+
+## Authentication Flow
+1. User logs in using **email/password**.
+2. Credentials are validated against **JSON Server (db.json)**.
+3. On successful login, the user is **redirected to the Dashboard**.
+4. User session is stored in **localStorage** for persistence.
+5. Logout clears the session and redirects to the **Login page**.
+
+## Routes
+| Path          | Component   | Access |
+|--------------|------------|--------|
+| `/login`     | Login      | Public |
+| `/dashboard` | Dashboard  | Private |
+| `/users`     | Users Page | Private (Admin) |
+
+## Screenshots
+### Login Page
+![Login Page](https://via.placeholder.com/400)
+
+### Dashboard
+![Dashboard](https://via.placeholder.com/400)
+
+## Contributors
+- **Your Name** - [GitHub Profile](https://github.com/your-username)
+
+## License
+MIT License © 2025
+
